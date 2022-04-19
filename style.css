@@ -1,0 +1,71 @@
+:root{
+    --cinza-claro: rgb(182, 177, 177);
+    --cinza-escuro: rgb(53, 50, 50);    
+    --laranja-claro: rgb(228, 165, 106);
+    --laranja-escuro: rgb(122, 64, 10);
+    --vermelho-claro: rgb(202, 77, 72);
+    --vermelho-escuro: rgb(114, 17, 14);
+    --verde-claro: rgb(124, 170, 124);
+    --verde-escuro: rgb(35, 78, 35);
+    --branco: rgb(255, 255, 255);
+}
+
+*{
+    padding: 0;
+    margin: 0;    
+    border: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 36px;
+    font-family: monospace;
+    color: var(--cinza-escuro);
+}
+
+.corpo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cinza-claro);    
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+}
+
+.opcao{
+    border: 2px solid var(--cinza-escuro);
+    border-radius: 0.3rem;
+
+    padding: 0.3rem;
+    margin: 1rem;
+    width: 5rem;
+    height: 2rem;
+
+    transition: .7s;
+}
+
+.opcao:hover{
+    background-color: var(--laranja-claro);
+    border-color: var(--laranja-escuro);
+    color: var(--laranja-escuro);
+
+    transition: .7s;
+}
+
+.opcao:active{
+    background-color: var(--laranja-escuro);
+    color: var(--laranja-claro);
+
+    transition: .7s;
+}
+
+
+@media only screen and (min-width:650px){
+
+    .corpo{
+        flex-direction: row;
+    }
+}
