@@ -103,6 +103,40 @@
     font-size: 0.5rem;
 }
 
+.elemento{ 
+    border-bottom: 3px solid var(--cinza-escuro);   
+    padding: 0.2rem;
+
+    background-color: transparent;
+    outline: 0;    
+
+    animation: piscando 1.5s infinite;
+}
+
+@keyframes piscando{
+    from{ border-color: transparent; }
+    to{ border-color: var(--cinza-escuro); }
+}
+
+.elemento:focus{
+    border-style: dashed;
+    animation: none;
+}
+
+.obrigatorio{
+    border-color: var(--vermelho-claro);
+    animation: none;
+}
+
+
+.elemento-pilha{
+    height: 20%;
+    width: 60%;
+    
+    margin-top: 1rem;
+}
+
+
 /* ------------------------------------------------------------------------ */
 
 
