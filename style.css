@@ -1,5 +1,6 @@
 :root{
     --cinza-claro: rgb(182, 177, 177);
+    --cinza-medio: rgb(131, 128, 128);
     --cinza-escuro: rgb(53, 50, 50);    
     --laranja-claro: rgb(228, 165, 106);
     --laranja-escuro: rgb(122, 64, 10);
@@ -8,6 +9,10 @@
     --verde-claro: rgb(124, 170, 124);
     --verde-escuro: rgb(35, 78, 35);
     --branco: rgb(255, 255, 255);
+}
+
+::selection{
+    background-color: initial;
 }
 
 *{
@@ -24,15 +29,18 @@
 }
 
 .corpo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     background-color: var(--cinza-claro);    
     height: 100vh;
     width: 100vw;
     padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corpo-inicio{    
+    flex-direction: column;    
 }
 
 .opcao{
@@ -44,6 +52,7 @@
     width: 5rem;
     height: 2rem;
 
+    font-size: 1rem;
     transition: .7s;
 }
 
@@ -62,10 +71,54 @@
     transition: .7s;
 }
 
+/* ------------------------------------------------------------------------ */
+
+.corpo-pilha{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+}
+
+.subcorpo{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0.2rem; 
+}
+
+.interacoes{       
+    width: 95%;
+    
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+
+.interacoes-pilha{       
+    justify-content: center;
+}
+
+.obs{
+    font-size: 0.5rem;
+}
+
+/* ------------------------------------------------------------------------ */
+
+
+
+
+
+
 
 @media only screen and (min-width:650px){
 
-    .corpo{
-        flex-direction: row;
+    .corpo-inicio{
+        flex-direction: row;        
+    }
+
+    .corpo-pilha{
+        flex-wrap: nowrap;
+        overflow: hidden;
     }
 }
