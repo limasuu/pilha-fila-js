@@ -28,7 +28,7 @@
     color: var(--cinza-escuro);
 }
 
-.corpo{
+.corpo-inicio, .corpo-pilha{
     background-color: var(--cinza-claro);    
     height: 100vh;
     width: 100vw;
@@ -87,23 +87,21 @@
     margin: 0.2rem; 
 }
 
-.interacoes{       
+.interacoes-pilha{       
     width: 95%;
     
     display: flex;
     flex-direction: column;    
-    align-items: center;
-}
-
-.interacoes-pilha{       
+    align-items: center;  
     justify-content: center;
 }
+
 
 .obs{
     font-size: 0.5rem;
 }
 
-.elemento{ 
+.elemento-pilha{ 
     border-bottom: 3px solid var(--cinza-escuro);   
     padding: 0.2rem;
 
@@ -118,7 +116,7 @@
     to{ border-color: var(--cinza-escuro); }
 }
 
-.elemento:focus{
+.elemento-pilha:focus{
     border-style: dashed;
     animation: none;
 }
@@ -129,11 +127,115 @@
 }
 
 
-.elemento-pilha{
+
+.elemento-pilha, .botao-pilha{
     height: 20%;
     width: 60%;
     
     margin-top: 1rem;
+}
+
+
+.botao-pilha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 0.3rem;
+
+    transition: .7s;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+.botao-pilha:hover{
+    cursor: pointer;
+    transition: .7s;
+}
+
+
+.inserir{
+    background-color: var(--verde-claro);
+    border-color: var(--verde-escuro);
+    color: var(--verde-escuro);
+}
+
+.remover{
+    background-color: var(--vermelho-claro);
+    border-color: var(--vermelho-escuro);
+    color: var(--vermelho-escuro);
+}
+
+.inserir:hover{
+    background-color: var(--verde-escuro);
+    color: var(--verde-claro);
+}
+
+.remover:hover{
+    background-color: var(--vermelho-escuro);
+    color: var(--vermelho-claro);
+}
+
+.esvaziar{
+    background-color: var(--cinza-medio);
+    border-color: var(--cinza-escuro);
+    color: var(--cinza-escuro);
+}
+
+.esvaziar:hover{
+    background-color: var(--cinza-escuro);
+    color: var(--cinza-medio);
+}
+
+/* ------------------------------------------------------------------------ */
+
+.elementos-pilha{
+    border: 3px dashed var(--cinza-escuro);
+    display: flex;
+    align-items: center;
+
+    width: 50%;    
+    flex-direction: column;
+    justify-content: end;    
+}
+
+
+.empilhado{
+    background-color: var(--cinza-escuro);
+    color: var(--cinza-claro);    
+
+    border-color: var(--cinza-claro);
+    border-style: solid;
+    border-width: 0.05rem 0.1rem; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+
+    cursor: default;
+    animation: novo 2s;
+
+    width: 100%;
+    height: 10%;
+}
+
+
+@keyframes novo{
+    0%{ background-color: var(--cinza-claro); }
+    50%{ background-color: var(--branco); color: var(--cinza-escuro); }
+    100%{ background-color: var(--cinza-escuro); }
+}
+
+.elementos-cheio{
+    border-color: var(--vermelho-escuro);
+}
+
+.elementos-cheio .empilhado{
+    background-color: var(--vermelho-escuro);
+    color: var(--vermelho-claro);
 }
 
 
