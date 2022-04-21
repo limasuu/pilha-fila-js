@@ -50,6 +50,12 @@ empilharBotao.addEventListener('click', () => {
     }
 });
 
+            
+esvaziarBotao.addEventListener('click', () => {
+    elementosPilhaDiv.innerHTML= "";
+    iniciar();
+    permitirInsercao();
+});
 
 function limparInput(){
     elementoPilhaInput.value= "";
@@ -66,4 +72,13 @@ function ativarBotao(botao){
     const nome= botao.innerHTML;
     botao.classList.remove("inativo");
     botao.classList.remove(`inativo-${nome}`);
+}
+
+function permitirInsercao(){
+    if(elementosPilhaDiv.classList.contains("elementos-cheio")){
+        elementosPilhaDiv.classList.remove("elementos-cheio");
+        ativarBotao(empilharBotao);
+        elementoPilhaInput.classList.remove("sem-entradas");
+        elementoPilhaInput.disabled= false;   
+    }    
 }
