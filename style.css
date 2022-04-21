@@ -238,6 +238,34 @@
     color: var(--vermelho-claro);
 }
 
+/* ------------------------------------------------------------------------ */
+
+.inativo{
+    opacity: 50%;   
+}
+
+.inativo:hover{
+    cursor: not-allowed; 
+}
+
+.inativo-empilhar:hover{ 
+    background-color: var(--verde-claro);
+    border-color: var(--verde-escuro);
+    color: var(--verde-escuro);
+}
+
+.inativo-desempilhar:hover{ 
+    background-color: var(--vermelho-claro);
+    border-color: var(--vermelho-escuro);
+    color: var(--vermelho-escuro);
+}
+
+.inativo-esvaziar:hover{ 
+    background-color: var(--cinza-medio);
+    border-color: var(--cinza-escuro);
+    color: var(--cinza-escuro);
+}
+
 
 /* ------------------------------------------------------------------------ */
 
