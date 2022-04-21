@@ -126,7 +126,25 @@
     animation: none;
 }
 
+.saiu{
+    animation: saida 2s;
+    border: 0;
+    font-size: 1.5rem;
+}
 
+@keyframes saida{
+    0%{color: var(--branco);}
+    10%{color: var(--cinza-claro);}
+    20%{color: var(--branco);}
+    30%{color: var(--cinza-claro);}
+    40%{color: var(--branco);}
+    50%{color: var(--cinza-claro);}
+    60%{color: var(--branco);}
+    70%{color: var(--cinza-claro);}
+    80%{color: var(--branco);}
+    90%{color: var(--cinza-claro);}
+    100%{color: var(--branco);}
+}
 
 .elemento-pilha, .botao-pilha{
     height: 20%;

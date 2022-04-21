@@ -50,6 +50,32 @@ empilharBotao.addEventListener('click', () => {
     }
 });
 
+desempilharBotao.addEventListener('click', () => {
+    
+    elementosPilhaDiv.removeChild(elementosPilhaDiv.firstElementChild);
+    elementoPilhaInput.value= elementos.pop();
+
+    elementoPilhaInput.classList.add("saiu");
+    elementoPilhaInput.disabled= true; 
+    inativarBotao(empilharBotao);
+    inativarBotao(desempilharBotao);
+    inativarBotao(esvaziarBotao);
+    
+    setTimeout( () => {
+        elementoPilhaInput.classList.remove("saiu");
+        limparInput();
+        elementoPilhaInput.disabled= false;
+        ativarBotao(empilharBotao);
+        ativarBotao(desempilharBotao);
+        ativarBotao(esvaziarBotao);
+
+        permitirInsercao();    
+        if(elementos.length === 0)
+            iniciar();
+    }, 2000);    
+
+    
+});
             
 esvaziarBotao.addEventListener('click', () => {
     elementosPilhaDiv.innerHTML= "";
