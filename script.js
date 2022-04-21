@@ -16,6 +16,40 @@ function iniciar(){
     inativarBotao(esvaziarBotao);
 }
 
+empilharBotao.addEventListener('click', () => {
+
+    if(elementoPilhaInput.value === ""){
+        elementoPilhaInput.classList.add("obrigatorio");
+
+        setTimeout(() => {
+            elementoPilhaInput.classList.remove("obrigatorio");
+        }, 2000);
+
+    }else{    
+        if(elementos.length !== MAX_ELEMENTOS){
+
+            elementos.push(elementoPilhaInput.value);
+
+            const novo= document.createElement("div");
+            novo.classList.add("empilhado");
+            novo.innerHTML= elementoPilhaInput.value;
+            elementosPilhaDiv.prepend(novo);
+
+            limparInput();
+
+            ativarBotao(desempilharBotao);
+            ativarBotao(esvaziarBotao);
+            
+            if(elementos.length === MAX_ELEMENTOS){
+                elementosPilhaDiv.classList.add("elementos-cheio");
+                inativarBotao(empilharBotao);
+                elementoPilhaInput.classList.add("sem-entradas");
+                elementoPilhaInput.disabled= true;
+            }
+        }    
+    }
+});
+
 
 function limparInput(){
     elementoPilhaInput.value= "";
@@ -26,4 +60,10 @@ function inativarBotao(botao){
     const nome= botao.innerHTML;
     botao.classList.add("inativo");
     botao.classList.add(`inativo-${nome}`);
+}
+
+function ativarBotao(botao){
+    const nome= botao.innerHTML;
+    botao.classList.remove("inativo");
+    botao.classList.remove(`inativo-${nome}`);
 }
