@@ -262,7 +262,8 @@
 .elementos-fila{
     width: 90%;
     height: 80%;    
-    justify-content: flex-start;    
+    flex-direction: row-reverse;
+    justify-content: flex-end;    
 }
 
 .empilhado, .enfilado{

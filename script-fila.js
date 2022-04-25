@@ -16,6 +16,40 @@ function iniciar(){
     inativarBotao(esvaziarBotao);
 }
 
+enfilarBotao.addEventListener('click', () => {
+
+    if(elementoFilaInput.value === ""){
+        elementoFilaInput.classList.add("obrigatorio");
+
+        setTimeout(() => {
+            elementoFilaInput.classList.remove("obrigatorio");
+        }, 2000);
+
+    }else{    
+        if(elementos.length !== MAX_ELEMENTOS){
+
+            elementos.push(elementoFilaInput.value);
+
+            const novo= document.createElement("div");
+            novo.classList.add("enfilado");
+            novo.innerHTML= elementoFilaInput.value;
+            elementosFilaDiv.prepend(novo);
+
+            limparInput();
+
+            ativarBotao(desenfilarBotao);
+            ativarBotao(esvaziarBotao);
+            
+            if(elementos.length === MAX_ELEMENTOS){
+                elementosFilaDiv.classList.add("elementos-cheio");
+                inativarBotao(enfilarBotao);
+                elementoFilaInput.classList.add("sem-entradas");
+                elementoFilaInput.disabled= true;
+            }
+        }    
+    }
+});
+
 
 function limparInput(){
     elementoFilaInput.value= "";
