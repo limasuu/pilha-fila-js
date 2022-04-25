@@ -317,13 +317,13 @@
     cursor: not-allowed; 
 }
 
-.inativo-empilhar:hover{ 
+.inativo-empilhar:hover, .inativo-enfilar:hover{ 
     background-color: var(--verde-claro);
     border-color: var(--verde-escuro);
     color: var(--verde-escuro);
 }
 
-.inativo-desempilhar:hover{ 
+.inativo-desempilhar:hover, .inativo-desenfilar:hover{ 
     background-color: var(--vermelho-claro);
     border-color: var(--vermelho-escuro);
     color: var(--vermelho-escuro);
