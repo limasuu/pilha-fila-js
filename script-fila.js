@@ -76,6 +76,12 @@ desenfilarBotao.addEventListener('click', () => {
 
     
 });
+            
+esvaziarBotao.addEventListener('click', () => {
+    elementosFilaDiv.innerHTML= "";
+    iniciar();
+    permitirInsercao();
+});
 
 function limparInput(){
     elementoFilaInput.value= "";
