@@ -50,6 +50,32 @@ enfilarBotao.addEventListener('click', () => {
     }
 });
 
+desenfilarBotao.addEventListener('click', () => {
+    
+    elementosFilaDiv.removeChild(elementosFilaDiv.lastElementChild);
+    elementoFilaInput.value= elementos.shift();
+
+    elementoFilaInput.classList.add("saiu");
+    elementoFilaInput.disabled= true; 
+    inativarBotao(enfilarBotao);
+    inativarBotao(desenfilarBotao);
+    inativarBotao(esvaziarBotao);
+    
+    setTimeout( () => {
+        elementoFilaInput.classList.remove("saiu");
+        limparInput();
+        elementoFilaInput.disabled= false;
+        ativarBotao(enfilarBotao);
+        ativarBotao(desenfilarBotao);
+        ativarBotao(esvaziarBotao);
+
+        permitirInsercao();    
+        if(elementos.length === 0)
+            iniciar();
+    }, 2000);    
+
+    
+});
 
 function limparInput(){
     elementoFilaInput.value= "";
@@ -66,4 +92,13 @@ function ativarBotao(botao){
     const nome= botao.innerHTML;
     botao.classList.remove("inativo");
     botao.classList.remove(`inativo-${nome}`);
+}
+
+function permitirInsercao(){
+    if(elementosFilaDiv.classList.contains("elementos-cheio")){
+        elementosFilaDiv.classList.remove("elementos-cheio");
+        ativarBotao(enfilarBotao);
+        elementoFilaInput.classList.remove("sem-entradas");
+        elementoFilaInput.disabled= false;   
+    }    
 }
