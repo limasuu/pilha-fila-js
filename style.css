@@ -107,9 +107,10 @@
     justify-content: space-around;
 }
 
-.textos{
+.textos{    
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width: 80%;
 }
 
@@ -118,10 +119,11 @@
 }
 
 .titulo, .elemento-fila{
-    margin: 0 1rem;
+    width:100%;
 }
 
 .obs{
+    min-width:5rem;
     font-size: 0.5rem;
 }
 
@@ -171,12 +173,12 @@
 }
 
 .elemento-fila{ 
-    width: 20%;
+    margin: 1rem 0;
 }
 
 .elemento-pilha, .botao-pilha{
     height: 20%;
-    width: 60%;
+    width: 70%;
     
     margin-top: 1rem;
 }
@@ -184,8 +186,9 @@
 .botoes{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
-    height: 30%;
+    height: 50%;
 }
 
 .botao-pilha, .botao-fila{
@@ -208,8 +211,8 @@
 }
 
 .botao-fila{
-    min-width: 20%;
-    margin: 0 0.5rem;
+    width: 80%;
+    margin: 0.2rem 0;    
 }
 
 .inserir{
@@ -224,6 +227,12 @@
     color: var(--vermelho-escuro);
 }
 
+.esvaziar{
+    background-color: var(--cinza-medio);
+    border-color: var(--cinza-escuro);
+    color: var(--cinza-escuro);
+}
+
 .inserir:hover{
     background-color: var(--verde-escuro);
     color: var(--verde-claro);
@@ -232,12 +241,6 @@
 .remover:hover{
     background-color: var(--vermelho-escuro);
     color: var(--vermelho-claro);
-}
-
-.esvaziar{
-    background-color: var(--cinza-medio);
-    border-color: var(--cinza-escuro);
-    color: var(--cinza-escuro);
 }
 
 .esvaziar:hover{
@@ -254,16 +257,17 @@
 }
 
 .elementos-pilha{
-    width: 50%;    
+    width: 80%;
     flex-direction: column;
     justify-content: end;    
 }
 
 .elementos-fila{
-    width: 90%;
-    height: 80%;    
-    flex-direction: row-reverse;
-    justify-content: flex-end;    
+    width: 100%;
+    height: 80%;  
+    flex-direction: row;
+    justify-content: flex-start;    
+    flex-wrap: wrap;
 }
 
 .empilhado, .enfilado{
@@ -272,7 +276,6 @@
 
     border-color: var(--cinza-claro);
     border-style: solid;
-    border-width: 0.05rem 0.1rem; 
 
     display: flex;
     justify-content: center;
@@ -284,13 +287,15 @@
 }
 
 .empilhado{
+    border-width: 0.05rem 0.1rem; 
     width: 100%;
     height: 10%;
 }
 
-.enfilado{
-    width: 10%;
-    height: 100%;
+.enfilado{ 
+    border-width: 0.1rem; 
+    width: 20%;
+    height: 50%;
 }
 
 @keyframes novo{
@@ -342,12 +347,6 @@
 
 /* ------------------------------------------------------------------------ */
 
-
-
-
-
-
-
 @media only screen and (min-width:650px){
 
     .corpo-inicio{
@@ -358,4 +357,92 @@
         flex-wrap: nowrap;
         overflow: hidden;
     }
+
+    .textos{
+        flex-wrap: nowrap;
+    }
+
+    .titulo, .elemento-fila{
+        margin: 0 1rem;
+    }
+
+    .titulo{
+        width: auto;
+    }
+
+    .elemento-fila{ 
+        width: 7rem;
+    }
+
+    .botoes{ 
+        height: 30%;
+        flex-wrap: nowrap;
+    }
+
+    .botao-fila{
+        min-width: 20%;
+        margin: 0 0.5rem;
+    }
+    
+    .corpo-fila{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    .subcorpo-fila:first-of-type{
+        height: 60%;
+    }
+
+    .subcorpo-fila:last-of-type{
+        height: 40%;
+    }
+
+    .elementos-pilha{
+        width: 50%;    
+    }
+
+    .elementos-fila{
+        width: 90%;   
+        flex-wrap: nowrap;
+    }
+
+    .enfilado{
+        border-width: 0.05rem 0.1rem; 
+        width: 10%;
+        height: 100%;
+    }
+}
+
+@media only screen and ((max-width:509px) or ((min-width:650px) and (max-width:1000px))){
+
+    *{
+        font-size: 24px;
+    }
+
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .obs{
+        font-size: 0.75rem;
+    }
+
+    .enfilado{
+        font-size: 1rem;
+    }
+
+    .opcao{
+        font-size: 1.5rem;
+        border-radius: 0.6rem;
+        padding: 0.6rem;
+        margin: 1.5rem;
+        width: 7.5rem;
+        height: 3rem;
+    }
+
+    .botao-pilha, .botao-fila{
+        font-size: 1rem;
+        border-radius: 0.6rem;
+    } 
 }

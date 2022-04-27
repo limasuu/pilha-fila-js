@@ -33,7 +33,7 @@ enfilarBotao.addEventListener('click', () => {
             const novo= document.createElement("div");
             novo.classList.add("enfilado");
             novo.innerHTML= elementoFilaInput.value;
-            elementosFilaDiv.prepend(novo);
+            elementosFilaDiv.append(novo);
 
             limparInput();
 
@@ -52,7 +52,7 @@ enfilarBotao.addEventListener('click', () => {
 
 desenfilarBotao.addEventListener('click', () => {
     
-    elementosFilaDiv.removeChild(elementosFilaDiv.lastElementChild);
+    elementosFilaDiv.removeChild(elementosFilaDiv.firstElementChild);
     elementoFilaInput.value= elementos.shift();
 
     elementoFilaInput.classList.add("saiu");
